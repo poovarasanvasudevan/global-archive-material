@@ -1,0 +1,139 @@
+body {
+    background-color: #f0ede9;
+}
+
+.my-bg {
+    background-color: #f0ede9;
+}
+
+.zmdi-icon-size {
+    font-size: 22px !important;
+}
+
+.marginT10 {
+    margin-top: 10px !important;
+}
+
+.marginL10 {
+    margin-left: 10px !important;
+}
+
+.marginT60 {
+    margin-top: 90px !important;
+}
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: #ffffff;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 4px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 0px !important;
+    background: #fff;
+    width: 100%;
+}
+
+.header-color {
+    background-color: #4fc1e9;
+    color: #fff !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.white {
+    color: white;
+}
+
+.fixed-nav-bar {
+    position: static;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: #00a087;
+}
+.error {
+    color: red;
+}
+
+.dialog {
+    top: 30% !important;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}
+
+.toolbar-icon-small {
+    font-size: 1.5rem;;
+}
+
+.margin0 {
+    margin: 0px !important;
+}
+
+.border-left-white {
+    margin-left: 5px !important;
+    margin-right: 3px !important;
+    border: 1px solid #fff !important;
+}
+
+.marginR10 {
+    margin-right: 10px !important;
+}
+
+.mdi-big {
+    font-size: 4em !important;
+}
+
+.mdi-icon-color {
+    color: #7d7a7a;
+}
+
+.sidebar-divider {
+    border-right: 1px solid rgba(0, 0, 0, .12)
+}
+.padding0 {
+    padding: 0px !important;
+}
+.dropdown-menu {
+    margin-top: 20px  !important;
+}
+.size-big {
+    font-size: 2000% !important;
+}
+.teal {
+    color: #009688;
+}
+.req {
+    font-weight: bold;
+    color: red;
+    font-size: 1.1em;
+    margin-left: 2px;
+    text-transform: none;
+}

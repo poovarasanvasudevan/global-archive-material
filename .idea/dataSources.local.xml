@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - global@localhost" uuid="1e9669a9-fb2d-48bc-af8b-98fabdc73a81">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>global.*</schema-pattern>
+      <default-schemas>global.*</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - global@localhost" uuid="f2293cc6-d27a-4f3e-9c17-dbd33f97bfae">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>global.pg_catalog global.public</schema-pattern>
+      <default-schemas>global.public</default-schemas>
+    </data-source>
+  </component>
+</project>
