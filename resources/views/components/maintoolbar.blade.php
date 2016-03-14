@@ -14,7 +14,11 @@
 
         <div class="toolbar__right">
 
+
+            @permission("view.user")
             <a class="md-button md-ink-ripple" href="{{URL::to("users")}}">Users</a>
+            <a class="md-button md-ink-ripple" href="{{URL::to("users")}}">Roles</a>
+            @endpermission
             <lx-dropdown position="right" from-top>
                 <button class="btn div-left  btn--black" lx-ripple lx-dropdown-toggle>
                     {{Auth::user()->firstname}}
@@ -50,7 +54,7 @@
 
                         <li>
                             <a class="dropdown-link  dropdown-link--is-large"
-                               href="logout">
+                               href="{{URL::to("logout")}}">
                                 <i class="zmdi zmdi-close"></i><span>Logout</span>
                             </a>
                         </li>

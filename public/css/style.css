@@ -1,5 +1,11 @@
 body {
     background-color: #f0ede9;
+    height: 100% !important;
+}
+#wrap {min-height: 93%;}
+#main {
+    overflow:auto;
+    padding-bottom: 50px; /* must be same height as the footer */
 }
 
 .my-bg {
@@ -136,4 +142,23 @@ a {
     font-size: 1.1em;
     margin-left: 2px;
     text-transform: none;
+}
+
+#footer {
+    position: relative;
+    margin-top: -50px;
+    height: 50px;
+    clear:both;
+}
+
+.bg-success {
+    color: #00C853;
+    font-style: bold;
+}
+.bg-error {
+    color: #D32F2F;
+
+}
+.tab-height {
+    min-height: 60% !important;
 }

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\ArtefactType;
 use App\Location;
 use App\User;
+use CsvReader;
 use DB;
 use Hash;
 use Illuminate\Console\Command;
@@ -48,30 +49,33 @@ class DBMigrate extends Command
      */
     public function handle()
     {
-        $this->info("Creating roles and permission...");
-        $admin = new Role();
-        $admin->name = "Admin";
-        $admin->slug="Administrator";
-        $admin->description = "Admin Holds all The permission of this system";
 
+        $this->info("Create Roles");
+        $permission = new Permission();
+        $user = $permission->create([
+            'name' => 'user',
+            'slug' => [          // pass an array of permissions.
+                'create' => true,
+                'read' => true,
+                'view' => true,
+                'update' => true,
+                'delete' => true
+            ],
+            'description' => 'manage user permissions'
+        ]);
 
-        $user = new Role();
-        $user->name = "User";
-        $user->slug="User";
-        $user->description = "User Holds limited permission of this system";
+        $role = $permission->create([
+            'name' => 'role',
+            'slug' => [          // pass an array of permissions.
+                'create' => true,
+                'read' => true,
+                'view' => true,
+                'update' => true,
+                'delete' => true
+            ],
+            'description' => 'manage role permissions'
+        ]);
 
-        if($admin->save() && $user->save()) {
-            $this->info("Admin and User role created...");
-        }
-
-        $this->info("Assigning permission...");
-        if($admin->assignPermission(Permission::all())) {
-            $this->info("All permission Assigned to admin...");
-        }
-
-
-
-        //
         $locationCount = 0;
         $userCount = 0;
         $artefacttypeCount = 0;
@@ -109,12 +113,27 @@ class DBMigrate extends Command
             if ($us->save()) {
                 $userCount++;
             }
+
+            $us->assignPermission($user);
+            $us->assignPermission($role);
         }
 
         $this->info($userCount . " Users Records migrated");
 
+
+        $this->info("Making Admin.....");
+
+
+        $auser = User::find(3);
+
+        $this->info("Assigning permission...");
+
+        $auser->addPermission('user');
+        $auser->addPermission('role');
+
+
         $this->info("Fetching Artefact Type Table...");
-        $artefact = DB::connection("mysql")->select("Select * from artefacttype");
+        $artefact = DB::connection("mysql")->select("Select * from artefacttype WHERE ArtefactTypePID id NULL ");
         foreach ($artefact as $u) {
             $us = new ArtefactType();
             $us->artefacttypecode = $u->ArtefactTypeCode;
@@ -122,6 +141,7 @@ class DBMigrate extends Command
             $us->artefacttypedescription = $u->ArtefactTypeDescription;
             $us->artefacticon = "";
             $us->sequencenumber = $u->SequenceNumber;
+
 
             if ($us->save()) {
                 $artefacttypeCount++;

@@ -30,7 +30,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/logout', "IndexController@logout");
     Route::get('/users', "IndexController@goUser");
     Route::get('/user/{id}', "UserController@editUser");
+    Route::get('/assignpermission/{userid}/{key}/{name}', "UserController@assignPermission");
+    Route::get('/resetpassword/{id}', "UserController@resetPassword");
     Route::get('/getallusers', "UserController@getAllUser");
     Route::get('/dashboard', "IndexController@goDashboard");
+    Route::get('/artefacts', "DashboardController@getAllArtefactTypes");
     Route::get('/validate/{username}/{password}', "IndexController@loginValidate");
 });

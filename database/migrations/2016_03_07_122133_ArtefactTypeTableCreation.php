@@ -20,6 +20,7 @@ class ArtefactTypeTableCreation extends Migration
             $table->string("artefacttypedescription");
             $table->string("artefacticon")->nullable();
             $table->integer("sequencenumber")->nullable();
+            $table->boolean("active")->default(true);
             $table->timestamps();
 
 //            $table->string('firstname');

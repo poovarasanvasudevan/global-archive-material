@@ -11,9 +11,12 @@
             <div class="col-md-12">
                 <div class="col-md-3 pull-right">
                     <div class="col-md-4">
+
+                        @permission("create.user")
                         <md-button class="md-raised md-primary"><i class="zmdi zmdi-account-add"></i>&nbsp;&nbsp; New
                             User
                         </md-button>
+                        @endpermission
                     </div>
 
                     <div class="col-md-8">
@@ -45,11 +48,17 @@
                         </md-card-title-media>
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
+
+                        @permission("update.user")
                         <md-button ng-click="editUser(user.id)"><i class="zmdi zmdi-edit"></i> &nbsp;&nbsp;Edit
                         </md-button>
+                        @endpermission
+
+                        @permission("delete.user")
                         <md-button id="[[user.id]]" ng-click="doUserDeActive(user.id,$event)"><i
                                     class="zmdi zmdi-close"></i>&nbsp;&nbsp;De-Active
                         </md-button>
+                        @endpermission
                     </md-card-actions>
                 </md-card>
             </div>

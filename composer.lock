@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "24bb2d83367b6b6b41a4cc4c96c30e0d",
-    "content-hash": "ad51b6936b69c3893d1aa438c0f11af4",
+    "hash": "455026d8f7ade84f9d8cb229d5ba00f8",
+    "content-hash": "124e9649964875c6ab6ec9dd00bdaf80",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2731,6 +2731,49 @@
                 "environment"
             ],
             "time": "2015-12-29 15:10:30"
+        },
+        {
+            "name": "wilgucki/csv",
+            "version": "v0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wilgucki/csv.git",
+                "reference": "06d521cd48e913cf5279b53d5b05554d265d9924"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wilgucki/csv/zipball/06d521cd48e913cf5279b53d5b05554d265d9924",
+                "reference": "06d521cd48e913cf5279b53d5b05554d265d9924",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wilgucki\\Csv\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maciej Wilgucki",
+                    "email": "mwilgucki@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 package for writing and reading CSV files",
+            "keywords": [
+                "csv",
+                "laravel"
+            ],
+            "time": "2016-02-10 11:35:09"
         }
     ],
     "packages-dev": [

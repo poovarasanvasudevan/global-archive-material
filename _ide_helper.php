@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.22 on 2016-03-08.
+ * Generated for Laravel 5.2.22 on 2016-03-09.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12097,6 +12097,122 @@ namespace {
          */
         public static function cache($callback, $lifetime = null, $returnObj = false){
             return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
+        }
+        
+    }
+
+
+    class CsvReader extends \Wilgucki\Csv\Facades\Reader{
+        
+        /**
+         * Open CSV file for reading
+         *
+         * @param $file File name with path to open
+         * @param null $delimiter @link http://php.net/manual/en/function.fgetcsv.php
+         * @param null $enclosure @link http://php.net/manual/en/function.fgetcsv.php
+         * @param null $escape @link http://php.net/manual/en/function.fgetcsv.php
+         * @return $this 
+         * @static 
+         */
+        public static function open($file, $delimiter = null, $enclosure = null, $escape = null){
+            return \Wilgucki\Csv\Reader::open($file, $delimiter, $enclosure, $escape);
+        }
+        
+        /**
+         * Close file pointer
+         *
+         * @static 
+         */
+        public static function close(){
+            return \Wilgucki\Csv\Reader::close();
+        }
+        
+        /**
+         * Get CSV header. Usually it's a first line in file.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getHeader(){
+            return \Wilgucki\Csv\Reader::getHeader();
+        }
+        
+        /**
+         * Read current line from CSV file
+         *
+         * @return array 
+         * @static 
+         */
+        public static function readLine(){
+            return \Wilgucki\Csv\Reader::readLine();
+        }
+        
+        /**
+         * Read all lines from CSV file
+         *
+         * @return array 
+         * @static 
+         */
+        public static function readAll(){
+            return \Wilgucki\Csv\Reader::readAll();
+        }
+        
+    }
+
+
+    class CsvWriter extends \Wilgucki\Csv\Facades\Writer{
+        
+        /**
+         * Open CSV file for writing.
+         *
+         * @param string $file File name for writing CSV data. If not provided memory will be used as CSV file.
+         * @param null $delimiter @link http://php.net/manual/en/function.fputcsv.php
+         * @param null $enclosure @link http://php.net/manual/en/function.fputcsv.php
+         * @param null $escape @link http://php.net/manual/en/function.fputcsv.php
+         * @return $this 
+         * @static 
+         */
+        public static function create($file = 'php://memory', $delimiter = null, $enclosure = null, $escape = null){
+            return \Wilgucki\Csv\Writer::create($file, $delimiter, $enclosure, $escape);
+        }
+        
+        /**
+         * Close file pointer
+         *
+         * @static 
+         */
+        public static function close(){
+            return \Wilgucki\Csv\Writer::close();
+        }
+        
+        /**
+         * Write line to CSV file.
+         *
+         * @param array $row
+         * @static 
+         */
+        public static function writeLine($row){
+            return \Wilgucki\Csv\Writer::writeLine($row);
+        }
+        
+        /**
+         * Write all line to CSV file at once
+         *
+         * @param array $data
+         * @static 
+         */
+        public static function writeAll($data){
+            return \Wilgucki\Csv\Writer::writeAll($data);
+        }
+        
+        /**
+         * Output all written data as string.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function flush(){
+            return \Wilgucki\Csv\Writer::flush();
         }
         
     }

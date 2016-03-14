@@ -1,0 +1,8 @@
+NAME,SLUG,DESCRIPTION
+user,userview,"Can View All the User In the listing,They can see the user in the top menu "
+user,userdetails,Can View Details button User In the listing in the user page
+user,useredit,Can View Edit button User In the listing in the user page
+user,userdeactive,Can deactive the user
+user,usercreate,Can Create The User
+user,userharddelete,Can Delete the whole User
+user,userrolechange,Can Change  the role of all Users

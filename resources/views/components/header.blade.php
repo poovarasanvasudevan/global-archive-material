@@ -5,6 +5,7 @@
     {!! Html::style("css/material.css") !!}
     {!! Html::style("css/lumx.css") !!}
     {!! Html::style("css/style.css") !!}
+    {!! Html::style("css/kube.min.css") !!}
     {!! Html::style("css/widget/table.css") !!}
     {!! Html::style("css/widget/inline.css") !!}
 

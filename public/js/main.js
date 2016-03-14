@@ -16,9 +16,11 @@ var TIMEOUTTIME = 5000;
 var LOGINURL = BASEURL + '/validate/';
 var DASHBOARDURL = BASEURL + '/dashboard';
 var MENUURL = BASEURL + '/menus';
-var ARTEFACTTYPEURL = BASEURL + '/artefacttypes';
+var ARTEFACTTYPEURL = BASEURL + '/artefacts';
 var GETALLUSERURL = BASEURL + '/getallusers';
 var EDITUSERURL = BASEURL + '/user/';
+var RESETPASSWORDURL = BASEURL + '/resetpassword/';
+var ASSIGNPERMISSIONURL = BASEURL + '/assignpermission/';
 
 app.controller('toolbar', function ($scope) {
 
@@ -49,6 +51,83 @@ app.controller('globalcontroller', function ($scope, $timeout, $http) {
 
 app.controller('maintoolbar', function ($scope) {
 
+});
+
+app.controller('usereditcontroller', function ($scope, $http, $mdToast, $mdSticky) {
+
+    //$mdSticky($scope, angular.element(document.querySelector("#card")));
+    $scope.resetpassword = function (id) {
+
+        $http
+            .get(RESETPASSWORDURL + id)
+            .success(function (data) {
+                if (data.result == true)
+                    $mdToast.show({
+                        hideDelay: 10000,
+                        position: 'bottom right',
+                        template: '<md-toast><i class="zmdi zmdi-check zmdi-hc-2x"></i>&nbsp;&nbsp;&nbsp;Password Reset Succesfully</md-toast>'
+                    });
+                else
+
+                    $mdToast.show({
+                        hideDelay: 10000,
+                        position: 'bottom right',
+                        template: '<md-toast><i class="zmdi zmdi-close zmdi-hc-2x"></i>&nbsp;&nbsp;&nbsp;Failed to reset Password</md-toast>'
+                    });
+
+            })
+            .error(function () {
+                $scope.error = "Some Server Error.."
+            })
+
+    }
+
+
+    $scope.assignPermission = function (per,userid, key, name) {
+
+        if (hasClass(document.getElementById(per), "md-checked")) {
+
+            alert("Un checked");
+        } else {
+            $http
+                .get(ASSIGNPERMISSIONURL + userid + "/" + key + "/" + name)
+                .success(function (data) {
+                    if (data.result == true) {
+                        $mdToast.show({
+                            hideDelay: 10000,
+                            position: 'bottom right',
+                            template: '<md-toast><i class="zmdi zmdi-check zmdi-hc-2x"></i>&nbsp;&nbsp;&nbsp;Permission Assigned Succesfully</md-toast>'
+                        });
+                    } else {
+                        $mdToast.show({
+                            hideDelay: 10000,
+                            position: 'bottom right',
+                            template: '<md-toast><i class="zmdi zmdi-close zmdi-hc-2x"></i>&nbsp;&nbsp;&nbsp;Failed to Assign Permission</md-toast>'
+                        });
+                    }
+
+                })
+                .error(function (data) {
+
+                });
+        }
+
+        //alert();
+
+
+        //alert(obj.checked);
+
+    }
+
+    function hasClass(element, classNameToTestFor) {
+        var classNames = element.className.split(' ');
+        for (var i = 0; i < classNames.length; i++) {
+            if (classNames[i].toLowerCase() == classNameToTestFor.toLowerCase()) {
+                return true;
+            }
+        }
+        return false;
+    }
 });
 
 app.controller('usercontroller', function ($scope, $http, $mdDialog, $window) {
@@ -135,7 +214,7 @@ app.controller('sidebarcontroller', function ($scope) {
 app.controller('dashboardcontroller', function ($scope, $http) {
 
     $http.get(ARTEFACTTYPEURL).success(function (data) {
-        $scope.artefacttypes = data.result;
+        $scope.artefacttypes = data;
     });
 
 });
@@ -160,4 +239,14 @@ $(document).ready(function () {
         stickyNav();
     });
 
+
 });
+
+
+//function assignPermission(obj,userid,permission) {
+//    if($(obj).checked) {
+//        alert("true");
+//    } else {
+//        alert("false");
+//    }
+//}

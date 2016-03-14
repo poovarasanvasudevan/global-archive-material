@@ -56,7 +56,7 @@ class IndexController extends Controller
 
         Auth::logout();
 
-        response()->redirectTo("");
+        return response()->redirectTo("");
 
     }
 

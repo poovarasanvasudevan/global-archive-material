@@ -1,6 +1,6 @@
 {
-  "uri": "http://127.0.0.1/global-laravel/public/validate/inksad408/123Welcome",
-  "method": "POST",
+  "uri": "http://127.0.0.1/global-laravel/public/assignpermission/2/view/user",
+  "method": "GET",
   "body": "",
   "headers": {}
 }

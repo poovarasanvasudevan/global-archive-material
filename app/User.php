@@ -18,7 +18,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'firstname','lastname','location','abhyasiid', 'email', 'password','image',"quotes",
+        'firstname','middlename','lastname','location','abhyasiid', 'email', 'password','image',"quotes","address","mobile",
     ];
 
     /**
@@ -29,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function location() {
+        return $this->hasOne('App\Location');
+    }
 }
